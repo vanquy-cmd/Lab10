@@ -15,6 +15,7 @@ const reducer = (state, action)=>{
       return {...state, userLogin: null}
     default:
       return new Error("Action not found")
+      break;
   }
 }
 
@@ -39,7 +40,7 @@ const MyContextControllerProvider = ({ children })=>{
 const useMyContextController = () => {
     const context = useContext(MyContext)
     if(context == null) {
-        throw new Error("useMyContextController must inside in MyContextControllerProvider")
+        return new Error("useMyContextController must inside in MyContextControllerProvider")
     }
     return context
 }
